@@ -1,0 +1,10 @@
+Hi, i had the same problem. Thanks for help me to  fix my problem. I'm using STM32CubeMx and STM32F4 Discovery. In the stm32CubeMx proyect I configure correctly the usb clock (48MHz) and  i'm using usb_otg_fs as device only. The solution  for "This device cannot start(code 10)" is almost the same that in your case.
+ In the source code of "usbd_cdc.h"  must be changed 
+#define CDC_DATA_HS_MAX_PACKET_SIZE                512  /* Endpoint IN & OUT Packet size */
+ to
+
+
+#define CDC_DATA_HS_MAX_PACKET_SIZE                 64  /* Endpoint IN & OUT Packet size */
+
+
+I hope  it help somebody
